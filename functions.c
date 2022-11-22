@@ -27,6 +27,7 @@ int print_char(va_list types, char buffer[],
  * @flags:  Calculates active flags
  * @width: get width.
  * @precision: Precision specification
+ * @len: string length
  * @size: Size specifier
  * Return: Number of chars printed
  */
@@ -47,9 +48,11 @@ int print_string(va_list types, char buffer[],
 	}
 
 	while (str[length] != '\0')
+	{
 		length++;
+	}
 
-		if (precision >= 0 && precision < len)
+		if (precision >= 0 && precision < length)
 			length = precision;
 
 		if (width > length)
